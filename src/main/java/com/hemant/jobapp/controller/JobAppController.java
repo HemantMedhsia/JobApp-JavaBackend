@@ -1,14 +1,14 @@
 package com.hemant.jobapp.controller;
-
-import com.hemant.jobapp.ApiResponse;
+import com.hemant.jobapp.dto.ApiResponse;
+import com.hemant.jobapp.dto.ResponseStructure;
 import com.hemant.jobapp.model.JobAppModel;
 import com.hemant.jobapp.service.JobAppService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -19,13 +19,8 @@ public class JobAppController {
     JobAppService jobAppService;
 
     @GetMapping("/all-jobs")
-    public ApiResponse<List<JobAppModel>> getAllJobs() {
+    public ResponseEntity<ResponseStructure<List<JobAppModel>>> getAllJobs() {
         List<JobAppModel> jobs = jobAppService.AllJobs();
-        return ApiResponse.<List<JobAppModel>>builder()
-                .status("success")
-                .message("Data Fetch Successfully")
-                .data(jobs)
-                .timestamp(LocalDateTime.now())
-                .build();
+        return ApiResponse.success(jobs,"Data Fetched Successfully", HttpStatus.OK);
     }
 }

@@ -1,4 +1,4 @@
-package com.hemant.jobapp;
+package com.hemant.jobapp.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ApiResponse<T> {
+public class ResponseStructure<T> {
     private String status;
     private String message;
     private T data;
