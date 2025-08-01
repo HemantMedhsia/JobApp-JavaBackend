@@ -15,11 +15,16 @@ import java.util.List;
 @RequestMapping("/api/v1/jobApp")
 public class JobAppController {
 
-    @Autowired
     JobAppService jobAppService;
+
+    @Autowired
+    public void setJobAppService(JobAppService jobAppService) {
+        this.jobAppService = jobAppService;
+    }
 
     @GetMapping("/all-jobs")
     public ResponseEntity<ResponseStructure<List<JobAppModel>>> getAllJobs() {
+//        System.out.println(6/0);
         List<JobAppModel> jobs = jobAppService.AllJobs();
         return ApiResponse.success(jobs,"Data Fetched Successfully", HttpStatus.OK);
     }
