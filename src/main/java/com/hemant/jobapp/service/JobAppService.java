@@ -8,6 +8,6 @@ public interface JobAppService {
     List<JobAppModel> AllJobs();
     JobAppModel SearchJobWithId(int jobId);
     JobAppModel AddNewJob(JobAppModel jobAppModel);
-    JobAppModel UpdateJob(JobAppModel jobAppModel);
+    JobAppModel UpdateJob(JobAppModel jobAppModel, int id);
     JobAppModel DeleteJob(int jobId);
 }

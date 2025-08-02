@@ -34,8 +34,8 @@ public class JobAppServiceImpl implements JobAppService {
     }
 
     @Override
-    public JobAppModel UpdateJob(JobAppModel jobAppModel) {
-        return jobAppRepo.UpdateJob(jobAppModel);
+    public JobAppModel UpdateJob(JobAppModel jobAppModel, int id) {
+        return jobAppRepo.UpdateJob(jobAppModel, id);
     }
 
     @Override

@@ -103,9 +103,9 @@ List<JobAppModel> jobAppModels = new ArrayList<>();
     }
 
     @Override
-    public JobAppModel UpdateJob(JobAppModel jobAppModel) {
+    public JobAppModel UpdateJob(JobAppModel jobAppModel, int id) {
         for(JobAppModel job: jobAppModels) {
-            if(job.getJobId() == jobAppModel.getJobId()) {
+            if(job.getJobId() == id) {
                 job.setJobName(jobAppModel.getJobName());
                 job.setJobDescription(jobAppModel.getJobDescription());
                 job.setJobExperience(jobAppModel.getJobExperience());
@@ -115,18 +115,18 @@ List<JobAppModel> jobAppModels = new ArrayList<>();
                 job.setJobEndDate(jobAppModel.getJobEndDate());
             }
         }
-        return null;
+        return findJobById(id);
     }
 
     @Override
     public JobAppModel DeleteJob(int jobId) {
-        boolean success = false;
         for(JobAppModel job: jobAppModels) {
             if(job.getJobId() == jobId) {
+                System.out.println("Hitting DeleteJobWithId inside --------------------------------->>>>>>");
                 jobAppModels.remove(job);
-                success = true;
+                return findJobById(jobId);
             }
         }
-        return success ?  findJobById(jobId) : null;
+        return null;
     }
 }
