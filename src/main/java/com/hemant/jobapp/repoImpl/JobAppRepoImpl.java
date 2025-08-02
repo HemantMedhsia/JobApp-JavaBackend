@@ -122,7 +122,6 @@ List<JobAppModel> jobAppModels = new ArrayList<>();
     public JobAppModel DeleteJob(int jobId) {
         for(JobAppModel job: jobAppModels) {
             if(job.getJobId() == jobId) {
-                System.out.println("Hitting DeleteJobWithId inside --------------------------------->>>>>>");
                 jobAppModels.remove(job);
                 return findJobById(jobId);
             }
