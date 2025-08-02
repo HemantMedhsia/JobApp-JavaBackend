@@ -10,5 +10,5 @@ public interface JobAppRepo {
     public JobAppModel findJobById(int jobId);
     public JobAppModel AddJob(JobAppModel jobAppModel);
     public JobAppModel UpdateJob(JobAppModel jobAppModel, int jobId);
-    public JobAppModel DeleteJob(int jobId);
+    public boolean DeleteJob(int jobId);
 }

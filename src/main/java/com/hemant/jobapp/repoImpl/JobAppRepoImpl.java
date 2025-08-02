@@ -119,13 +119,13 @@ List<JobAppModel> jobAppModels = new ArrayList<>();
     }
 
     @Override
-    public JobAppModel DeleteJob(int jobId) {
+    public boolean DeleteJob(int jobId) {
         for(JobAppModel job: jobAppModels) {
             if(job.getJobId() == jobId) {
                 jobAppModels.remove(job);
-                return findJobById(jobId);
+                return true;
             }
         }
-        return null;
+        return false;
     }
 }

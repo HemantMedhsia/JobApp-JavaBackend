@@ -9,5 +9,5 @@ public interface JobAppService {
     JobAppModel SearchJobWithId(int jobId);
     JobAppModel AddNewJob(JobAppModel jobAppModel);
     JobAppModel UpdateJob(JobAppModel jobAppModel, int id);
-    JobAppModel DeleteJob(int jobId);
+    boolean DeleteJob(int jobId);
 }

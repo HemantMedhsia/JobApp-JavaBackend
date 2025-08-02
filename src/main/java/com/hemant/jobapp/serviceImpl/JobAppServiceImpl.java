@@ -39,7 +39,7 @@ public class JobAppServiceImpl implements JobAppService {
     }
 
     @Override
-    public JobAppModel DeleteJob(int jobId) {
+    public boolean DeleteJob(int jobId) {
         return jobAppRepo.DeleteJob(jobId);
     }
 }
